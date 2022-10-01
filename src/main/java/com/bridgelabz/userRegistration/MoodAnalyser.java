@@ -1,13 +1,26 @@
 package com.bridgelabz.userRegistration;
 
 public class MoodAnalyser {
-	public String analyseMood(String message) {
-		if (message.contains(("SAD")))
-			return "SAD";
 
-		else
+	String message;
 
-			return "HAPPY";
+	// constructor
+	public MoodAnalyser(String message) {
+		this.message = message;
+	}
 
+	public String analyseMood() {
+		try {
+			if (message.contains(("SAD")))
+				return "SAD";
+
+			else
+
+				return "HAPPY";
+		} catch (NullPointerException exceptionReference) {
+			exceptionReference.printStackTrace();
+			System.out.println("catch block");
+			return "HAPPY , Please enter Valid Input";
+		}
 	}
 }
