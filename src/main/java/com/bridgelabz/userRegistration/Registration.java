@@ -86,10 +86,23 @@ public class Registration {
 		boolean resultLName = matobjlname.matches();
 
 		if (resultLName == true) {
-			user.setFirstname(sname);
-			System.out.println(user.getFirstname());
+			user.setLastName(sname);
+			System.out.println(user.getLastName());
 		} else {
 			System.out.println("Last name starts with Cap and has mminimum 3 characters");
+		}
+		
+		System.out.println("Enter user Email");  // UC3
+		String email = sc.nextLine();
+		Pattern pobjemail = Pattern.compile("^[a-z][a-z0-9-]+[.]?[a-z0-9-]+@([a-z]+.)+[a-z]{2,4}$");
+		Matcher matobjemail = pobjemail.matcher(email);
+		boolean resultemail = matobjemail.matches();
+
+		if (resultemail == true) {
+			user.setEmail(email);
+			System.out.println(user.getEmail());
+		} else {
+			System.out.println("Entered Email is not valid");
 		}
 	}
 
