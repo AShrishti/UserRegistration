@@ -65,7 +65,7 @@ public class Registration {
 
 		User user = new User();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter user First Name");  // UC1
+		System.out.println("Enter user First Name"); // UC1
 		String fname = sc.nextLine();
 		Pattern pobj = Pattern.compile("[A-Z][A-Za-z0-9_]{2,}");
 		Matcher matobj = pobj.matcher(fname);
@@ -78,8 +78,7 @@ public class Registration {
 			System.out.println("First name starts with Cap and has mminimum 3 characters");
 		}
 
-		
-		System.out.println("Enter user Last Name");  // UC2
+		System.out.println("Enter user Last Name"); // UC2
 		String sname = sc.nextLine();
 		Pattern pobjLName = Pattern.compile("[A-Z][A-Za-z0-9_]{2,}");
 		Matcher matobjlname = pobjLName.matcher(sname);
@@ -91,8 +90,8 @@ public class Registration {
 		} else {
 			System.out.println("Last name starts with Cap and has mminimum 3 characters");
 		}
-		
-		System.out.println("Enter user Email");  // UC3
+
+		System.out.println("Enter user Email"); // UC3
 		String email = sc.nextLine();
 		Pattern pobjemail = Pattern.compile("^[a-z][a-z0-9-]+[.]?[a-z0-9-]+@([a-z]+.)+[a-z]{2,4}$");
 		Matcher matobjemail = pobjemail.matcher(email);
@@ -104,31 +103,35 @@ public class Registration {
 		} else {
 			System.out.println("Entered Email is not valid");
 		}
-		
-		System.out.println("Enter user MobileNO");  // UC4
+
+		System.out.println("Enter user MobileNO"); // UC4
 		String mobile = sc.nextLine();
 		Pattern pobjmobile = Pattern.compile("^[+1-9][0-9]+[ ]?[0-9]{10,12}$");
 		Matcher matobjmobile = pobjmobile.matcher(mobile);
 		boolean resultmobile = matobjmobile.matches();
 
 		if (resultmobile == true) {
-			user.setMobileNo(mobile);;
+			user.setMobileNo(mobile);
+			;
 			System.out.println(user.getMobileNo());
 		} else {
 			System.out.println("Enter Country code follow by space and 10 digit number");
 		}
-		
-		System.out.println("Enter user Password");  // UC4
+
+		System.out.println("Enter user Password"); // UC4
 		String password = sc.nextLine();
 		Pattern pobjpass = Pattern.compile("^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\\W).*$");
-		Matcher matobjpass = pobjpass.matcher(password);     //(?=.*\\W) - one special character
-		boolean resultpass = matobjpass.matches();	
+		Matcher matobjpass = pobjpass.matcher(password); // (?=.*\\W) - one special character
+		boolean resultpass = matobjpass.matches();
 
 		if (resultpass == true) {
-			user.setMobileNo(password);;
+			user.setMobileNo(password);
+			;
 			System.out.println(user.getMobileNo());
 		} else {
-			System.out.println("Enter Country code follow by space and 10 digit number");
+			System.out.println("minimum 8 Characters\r\n" + " Should  have at least 1 Upper Case\r\n"
+					+ " Should have at 1least numeric number \r\n" + " Has exactly 1 Special Character\r\n");
+
 		}
 	}
 
