@@ -65,20 +65,32 @@ public class Registration {
 
 		User user = new User();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter user First Name");
+		System.out.println("Enter user First Name");  // UC1
 		String fname = sc.nextLine();
 		Pattern pobj = Pattern.compile("[A-Z][A-Za-z0-9_]{2,}");
 		Matcher matobj = pobj.matcher(fname);
 		boolean result = matobj.matches();
-		System.out.println(result);
+
 		if (result == true) {
 			user.setFirstname(fname);
 			System.out.println(user.getFirstname());
-		}
-		else {
+		} else {
 			System.out.println("First name starts with Cap and has mminimum 3 characters");
 		}
 
+		
+		System.out.println("Enter user Last Name");  // UC2
+		String sname = sc.nextLine();
+		Pattern pobjLName = Pattern.compile("[A-Z][A-Za-z0-9_]{2,}");
+		Matcher matobjlname = pobjLName.matcher(sname);
+		boolean resultLName = matobjlname.matches();
+
+		if (resultLName == true) {
+			user.setFirstname(sname);
+			System.out.println(user.getFirstname());
+		} else {
+			System.out.println("Last name starts with Cap and has mminimum 3 characters");
+		}
 	}
 
 }
