@@ -56,7 +56,19 @@ class User {
 		return "User [Firstname=" + Firstname + ", LastName=" + LastName + ", MobileNo=" + MobileNo + ", Password="
 				+ Password + ", email=" + email + "]";
 	}
+	
 
+}
+class Validator{
+	
+	public boolean checkPersonMail(String userInput) {
+		Pattern pobjemail = Pattern.compile("^[a-z][a-z0-9-]+[.]?[a-z0-9-]+@([a-z]+.)+[a-z]{2,4}$");
+		Matcher matobjemail = pobjemail.matcher(userInput);
+		return matobjemail.matches();
+
+	}
+	
+	
 }
 
 public class Registration {
@@ -64,6 +76,7 @@ public class Registration {
 	public static void main(String[] args) {
 
 		User user = new User();
+		Validator validate= new Validator();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter user First Name"); // UC1
 		String fname = sc.nextLine();
@@ -93,10 +106,7 @@ public class Registration {
 
 		System.out.println("Enter user Email"); // UC3
 		String email = sc.nextLine();
-		Pattern pobjemail = Pattern.compile("^[a-z][a-z0-9-]+[.]?[a-z0-9-]+@([a-z]+.)+[a-z]{2,4}$");
-		Matcher matobjemail = pobjemail.matcher(email);
-		boolean resultemail = matobjemail.matches();
-
+		boolean resultemail=validate.checkPersonMail(email);
 		if (resultemail == true) {
 			user.setEmail(email);
 			System.out.println(user.getEmail());
@@ -129,8 +139,8 @@ public class Registration {
 			;
 			System.out.println(user.getMobileNo());
 		} else {
-			System.out.println("minimum 8 Characters\r\n" + " Should  have at least 1 Upper Case\r\n"
-					+ " Should have at 1least numeric number \r\n" + " Has exactly 1 Special Character\r\n");
+			System.out.println(" minimum 8 Characters\r\n" + "Should  have at least 1 Upper Case\r\n"
+					+ "Should have at 1least numeric number \r\n" + "Has exactly 1 Special Character\r\n");
 
 		}
 	}
