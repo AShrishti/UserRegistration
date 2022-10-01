@@ -8,7 +8,7 @@ class User {
 
 	private String Firstname;
 	private String LastName;
-	private long MobileNo;
+	private String MobileNo;
 	private String Password;
 	private String email;
 
@@ -28,11 +28,11 @@ class User {
 		LastName = lastName;
 	}
 
-	public long getMobileNo() {
+	public String getMobileNo() {
 		return MobileNo;
 	}
 
-	public void setMobileNo(long mobileNo) {
+	public void setMobileNo(String mobileNo) {
 		MobileNo = mobileNo;
 	}
 
@@ -103,6 +103,19 @@ public class Registration {
 			System.out.println(user.getEmail());
 		} else {
 			System.out.println("Entered Email is not valid");
+		}
+		
+		System.out.println("Enter user MobileNO");  // UC4
+		String mobile = sc.nextLine();
+		Pattern pobjmobile = Pattern.compile("^[+1-9][0-9]+[ ]?[0-9]{10,12}$");
+		Matcher matobjmobile = pobjmobile.matcher(mobile);
+		boolean resultmobile = matobjmobile.matches();
+
+		if (resultmobile == true) {
+			user.setMobileNo(mobile);;
+			System.out.println(user.getMobileNo());
+		} else {
+			System.out.println("Enter Country code follow by space and 10 digit number");
 		}
 	}
 
