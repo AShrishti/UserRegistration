@@ -69,6 +69,8 @@ public class Registration {
 					+ "Should have at 1least numeric number \r\n" + "Has exactly 1 Special Character\r\n");
 
 		}
+		sc.close();
 	}
+	
 
 }
