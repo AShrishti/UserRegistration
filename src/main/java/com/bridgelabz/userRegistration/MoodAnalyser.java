@@ -4,7 +4,7 @@ public class MoodAnalyser {
 
 	String message;
 
-	// constructor
+	// passing message constructor
 	public MoodAnalyser(String message) {
 		this.message = message;
 	}
