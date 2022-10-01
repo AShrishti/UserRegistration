@@ -117,6 +117,19 @@ public class Registration {
 		} else {
 			System.out.println("Enter Country code follow by space and 10 digit number");
 		}
+		
+		System.out.println("Enter user Password");  // UC4
+		String password = sc.nextLine();
+		Pattern pobjpass = Pattern.compile("^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\\W).*$");
+		Matcher matobjpass = pobjpass.matcher(password);     //(?=.*\\W) - one special character
+		boolean resultpass = matobjpass.matches();	
+
+		if (resultpass == true) {
+			user.setMobileNo(password);;
+			System.out.println(user.getMobileNo());
+		} else {
+			System.out.println("Enter Country code follow by space and 10 digit number");
+		}
 	}
 
 }
