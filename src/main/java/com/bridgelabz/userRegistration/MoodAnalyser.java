@@ -9,18 +9,22 @@ public class MoodAnalyser {
 		this.message = message;
 	}
 
-	public String analyseMood() {
+	public String analyseMood(String message) {
 		try {
 			if (message.contains(("SAD")))
 				return "SAD";
+			else if (message.equals(null)) {
+				throw new MyMoodAnalysisException("Invalid Mood");
 
-			else
-
+			} else
 				return "HAPPY";
+
 		} catch (NullPointerException exceptionReference) {
 			exceptionReference.printStackTrace();
-			System.out.println("catch block");
 			return "HAPPY , Please enter Valid Input";
+		} catch (MyMoodAnalysisException excepnRef) {
+			excepnRef.getMessage();
 		}
+		return message;
 	}
 }

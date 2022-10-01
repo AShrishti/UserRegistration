@@ -9,34 +9,43 @@ import org.junit.Test;
 public class MoodAnalyserTest {
 
 	@Test
-	public void TestMoodAnalysis() throws Exception{
-		
-		MoodAnalyser moodAnalyser = new MoodAnalyser();
-		String Mood =moodAnalyser.analyseMood("I am in  SAD Mood");
+	public void TestMoodAnalysis() throws Exception {
+
+		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in  SAD Mood");
+		String Mood = moodAnalyser.analyseMood("I am in  SAD Mood");
 		Assert.assertThat(Mood, CoreMatchers.is("SAD"));
 		assertEquals("SAD", Mood);
 	}
-	
+
 	@Test
-	public void TestMoodAnalysisSecond() throws Exception{
-		
-		MoodAnalyser moodAnalyser = new MoodAnalyser();
-		String Mood =moodAnalyser.analyseMood("SAD");
+	public void TestMoodAnalysisSecond() throws Exception {
+
+		MoodAnalyser moodAnalyser = new MoodAnalyser("SAD");
+		String Mood = moodAnalyser.analyseMood("SAD");
 		Assert.assertThat(Mood, CoreMatchers.is("HAPPY"));
 	}
-	
+
 	@Test
-	public void TestMoodAnalysisThird() throws Exception{
-		
-		MoodAnalyser moodAnalyser = new MoodAnalyser();
-		String Mood =moodAnalyser.analyseMood(null);
+	public void TestMoodAnalysisThird() throws Exception {
+
+		MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+		String Mood = moodAnalyser.analyseMood(null);
 		Assert.assertThat(Mood, CoreMatchers.is("SAD"));
 	}
+
 	@Test
-	public void TestMoodAnalysisFourth() throws Exception{
-		
-		MoodAnalyser moodAnalyser = new MoodAnalyser();
-		String Mood =moodAnalyser.analyseMood("HAPPY");
+	public void TestMoodAnalysisFourth() throws Exception {
+
+		MoodAnalyser moodAnalyser = new MoodAnalyser("HAPPY");
+		String Mood = moodAnalyser.analyseMood("HAPPY");
 		Assert.assertThat(Mood, CoreMatchers.is("HAPPY"));
+	}
+
+	@Test
+	public void TestMoodAnalysisFifth() throws Exception {
+
+		MoodAnalyser moodAnalyser = new MoodAnalyser("SAD");
+		String Mood = moodAnalyser.analyseMood("SAD");
+		Assert.assertThat(Mood, CoreMatchers.is("SAD"));
 	}
 }
