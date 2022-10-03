@@ -9,20 +9,20 @@ public class ValidatorTest {
 	boolean expectation = true;
 
 	@Test
-	public void testCheckMailId() {
+	public void testCheckMailId() throws InvalidMailException {
 		assertEquals(this.expectation, obj.checkPersonMail("ashish07@gmail.com"));
 
 	}
 
 	@Test
-	public void testFirstName() {
+	public void testFirstName() throws InvalidFirstNameException {
 		assertEquals(this.expectation, obj.checkFirstName("Ashish"));
 
 	}
 
 	@Test
 	public void testLastName() {
-		assertEquals(this.expectation, obj.checkFirstName("Gupta"));
+		assertEquals(this.expectation, obj.checkLastName("Gupta"));
 
 	}
 

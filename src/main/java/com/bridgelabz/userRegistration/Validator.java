@@ -3,19 +3,29 @@ package com.bridgelabz.userRegistration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class Validator {
+class Validator extends Exception {
 
-	public boolean checkPersonMail(String userInput) {
+	public boolean checkPersonMail(String userInput) throws InvalidMailException {
 		Pattern pobjemail = Pattern.compile("^[a-z][a-z0-9-]+[.]?[a-z0-9-]+@([a-z]+.)+[a-z]{2,4}$");
+
 		Matcher matobjemail = pobjemail.matcher(userInput);
-		return matobjemail.matches();
+		if (matobjemail.matches() == true)
+
+			return matobjemail.matches();
+		else
+			throw new InvalidMailException("Entered Email is not valid");
 
 	}
 
-	public boolean checkFirstName(String userInput) {
+	public boolean checkFirstName(String userInput) throws InvalidFirstNameException {
 		Pattern pobj = Pattern.compile("[A-Z][A-Za-z0-9_]{2,}");
 		Matcher matobj = pobj.matcher(userInput);
-		return matobj.matches();
+
+		if (matobj.matches() == true)
+
+			return matobj.matches();
+		else
+			throw new InvalidFirstNameException("First name starts with Cap and has minimum 3 characters");
 
 	}
 

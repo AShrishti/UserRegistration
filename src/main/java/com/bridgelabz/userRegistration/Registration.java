@@ -2,7 +2,7 @@ package com.bridgelabz.userRegistration;
 
 import java.util.Scanner;
 
-public class Registration {
+public class Registration extends Exception {
 
 	public static void main(String[] args) {
 
@@ -12,34 +12,48 @@ public class Registration {
 		System.out.println("Enter user First Name"); // UC1
 		String fname = sc.nextLine();
 
-		boolean result = validate.checkFirstName(fname);
-		if (result == true) {
-			user.setFirstname(fname);
-			System.out.println(user.getFirstname());
-		} else {
-			System.out.println("First name starts with Cap and has mminimum 3 characters");
-		}
+		boolean result;
+		try {
+			result = validate.checkFirstName(fname);
 
-		System.out.println("Enter user Last Name"); // UC2
-		String sname = sc.nextLine();
+			if (result == true) {
+				user.setFirstname(fname);
+				System.out.println(user.getFirstname());
+			} else {
+				System.out.println("First name should starts with Cap & has minimum 3 characters");
+			}
 
-		boolean resultLName = validate.checkLastName(sname);
+			System.out.println("Enter user Last Name"); // UC2
+			String sname = sc.nextLine();
 
-		if (resultLName == true) {
-			user.setLastName(sname);
-			System.out.println(user.getLastName());
-		} else {
-			System.out.println("Last name starts with Cap and has mminimum 3 characters");
+			boolean resultLName = validate.checkLastName(sname);
+
+			if (resultLName == true) {
+				user.setLastName(sname);
+				System.out.println(user.getLastName());
+			} else {
+				System.out.println("Last name should starts with Cap and has mminimum 3 characters");
+			}
+		} catch (InvalidFirstNameException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 
 		System.out.println("Enter user Email"); // UC3
 		String email = sc.nextLine();
-		boolean resultemail = validate.checkPersonMail(email);
-		if (resultemail == true) {
-			user.setEmail(email);
-			System.out.println(user.getEmail());
-		} else {
-			System.out.println("Entered Email is not valid");
+		boolean resultemail;
+		try {
+			resultemail = validate.checkPersonMail(email);
+
+			if (resultemail == true) {
+				user.setEmail(email);
+				System.out.println(user.getEmail());
+			} else {
+				System.out.println("Entered Email is not valid");
+			}
+		} catch (InvalidMailException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		System.out.println("Enter user MobileNO"); // UC4
@@ -71,6 +85,5 @@ public class Registration {
 		}
 		sc.close();
 	}
-	
 
 }

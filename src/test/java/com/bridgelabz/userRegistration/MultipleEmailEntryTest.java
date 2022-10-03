@@ -30,18 +30,16 @@ public class MultipleEmailEntryTest {
 	}
 
 	@Parameterized.Parameters
-		public static Collection inputs() {
-			return Arrays.asList(new Object[][] { {  "ashish.gupta07@gmail.com",true }, {"ashu.gupta07@gmail.com",true }, 
-			{  "abc-100@yahoo.com",true }, {"abc-100@abc.net",true } ,
-			{  "abc111@abc.com",true }, {"abc.100@yahoo.com",true } ,
-			{  " abc.100@abc.com.au",false }, {"abc@1.com",true },
-			{  "abc@gmail.com.com",true }, {"abc@gmail.com.com",true } });
+	public static Collection inputs() {
+		return Arrays.asList(new Object[][] { { "ashish.gupta07@gmail.com", true }, { "ashu.gupta07@gmail.com", true },
+				{ "abc-100@yahoo.com", true }, { "abc-100@abc.net", true }, { "abc111@abc.com", true },
+				{ "abc.100@yahoo.com", true }, { " abc.100@abc.com.au", false }, { "abc@1.com", true },
+				{ "abc@gmail.com.com", true }, { "abc@gmail.com.com", true } });
 
-			
-		}
+	}
 
 	@Test
-	public void testCheckMailId() {
+	public void testCheckMailId() throws InvalidMailException {
 
 		assertEquals(this.expectation, jobj.checkPersonMail(userInput));
 
