@@ -21,7 +21,7 @@ public class ValidatorTest {
 	}
 
 	@Test
-	public void testLastName() {
+	public void testLastName() throws InvalidLastNameException {
 		assertEquals(this.expectation, obj.checkLastName("Gupta"));
 
 	}
