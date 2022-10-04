@@ -29,10 +29,14 @@ class Validator extends Exception {
 
 	}
 
-	public boolean checkLastName(String userInput) {
+	public boolean checkLastName(String userInput)throws  InvalidLastNameException {
 		Pattern pobjLName = Pattern.compile("[A-Z][A-Za-z0-9_]{2,}");
 		Matcher matobjlname = pobjLName.matcher(userInput);
-		return matobjlname.matches();
+		if (matobjlname.matches() == true)
+
+			return matobjlname.matches();
+		else
+			throw new InvalidLastNameException("Last name should starts with Cap and has mminimum 3 characters");
 
 	}
 

@@ -22,6 +22,17 @@ class InvalidFirstNameException extends Exception {
 	}
 }
 
+class InvalidLastNameException extends Exception {
+
+	String message;
+
+	InvalidLastNameException(String message) {
+		super(message);
+		this.message = message;
+
+	}
+}
+
 class InvalidMailException extends Exception {
 
 	String message;

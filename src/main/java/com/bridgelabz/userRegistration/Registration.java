@@ -22,11 +22,17 @@ public class Registration extends Exception {
 			} else {
 				System.out.println("First name should starts with Cap & has minimum 3 characters");
 			}
+		} catch (InvalidFirstNameException e1) {
+			// TODO Auto-generated catch block
+			e1.getMessage();
+		}
 
-			System.out.println("Enter user Last Name"); // UC2
-			String sname = sc.nextLine();
+		System.out.println("Enter user Last Name"); // UC2
+		String sname = sc.nextLine();
 
-			boolean resultLName = validate.checkLastName(sname);
+		boolean resultLName;
+		try {
+			resultLName = validate.checkLastName(sname);
 
 			if (resultLName == true) {
 				user.setLastName(sname);
@@ -34,9 +40,9 @@ public class Registration extends Exception {
 			} else {
 				System.out.println("Last name should starts with Cap and has mminimum 3 characters");
 			}
-		} catch (InvalidFirstNameException e1) {
+		} catch (InvalidLastNameException e1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			e1.getMessage();
 		}
 
 		System.out.println("Enter user Email"); // UC3
@@ -53,7 +59,7 @@ public class Registration extends Exception {
 			}
 		} catch (InvalidMailException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.getMessage();
 		}
 
 		System.out.println("Enter user MobileNO"); // UC4
